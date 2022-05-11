@@ -26,7 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class SettingsActivity extends AppCompatActivity {
 
     Button galeria, saveData,logOut;

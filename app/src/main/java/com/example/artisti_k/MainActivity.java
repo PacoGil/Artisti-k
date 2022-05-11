@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         fechasG = findViewById(R.id.fechasGuns);
         settings = findViewById(R.id.settingsButton);
 
-
         fechasB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
