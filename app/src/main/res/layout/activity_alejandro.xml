@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#202732"
+    tools:context=".AlejandroActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="match_parent"
+                android:layout_height="244dp"
+                app:srcCompat="@drawable/girasanz" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fechaA"
+                    android:layout_width="71dp"
+                    android:layout_height="wrap_content"
+                    android:text=" 16 JUN"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/horaA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="JUE 19:00"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/lugarA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Estadio benito Villamarín. Sevilla"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/artistaA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Alejandro Sanz"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/entradasA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00BCD4"
+                    android:text="entradas" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fechaA2"
+                    android:layout_width="71dp"
+                    android:layout_height="wrap_content"
+                    android:text="25 JUN"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/horaA2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="SAB 22:00"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/lugarA2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="La Romareda. Zaragoza"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/artistaA2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Alejandro Sanz"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/entradasA2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00BCD4"
+                    android:text="entradas" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fechaA3"
+                    android:layout_width="71dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text=" 01 JUL"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/horaA3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="VIE 22:30"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/lugarA3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Escenario Unicaja banco. Fuengirola"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/artistaA3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Alejandro Sanz"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/entradasA3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00BCD4"
+                    android:text="entradas" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fechaA4"
+                    android:layout_width="71dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="08 JUL"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/horaA4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="VIE 22:00"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/lugarA4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Estadio Nuevo Mirandilla. Cádiz"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/artistaA4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Alejandro Sanz"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/entradasA4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00BCD4"
+                    android:text="entradas" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

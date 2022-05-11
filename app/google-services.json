@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "720773709029",
+    "project_id": "artisti-k",
+    "storage_bucket": "artisti-k.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720773709029:android:ad8ae3e2be3e78dc5a680c",
+        "android_client_info": {
+          "package_name": "com.example.artisti_k"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720773709029-9t0322broja565prcq2hubbkomnnv2or.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.artisti_k",
+            "certificate_hash": "9cb5a0965aa8c73e4b1fb37a1a2abbd620fc40a3"
+          }
+        },
+        {
+          "client_id": "720773709029-ob8t96otrsu5smqelahdbfg799sismtn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPle4WWd_Sh_UofjqSBNpimQ-Ti6awZq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720773709029-ob8t96otrsu5smqelahdbfg799sismtn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

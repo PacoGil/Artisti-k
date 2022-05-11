@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#202732"
+    tools:context=".QueenActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/godsave" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fechaQ"
+                    android:layout_width="71dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="17 JUN"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/horaQ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="VIE 20:00"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/lugarQ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Starlite Marbella. Marbella"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/artistaQ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="God Save the Queen"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/entradasQ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00BCD4"
+                    android:text="entradas" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fechaQ2"
+                    android:layout_width="71dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="18 JUN"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/horaQ2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="SAB 22:30"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/lugarQ2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Auditorio Recinto Ferial. Badajoz"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/artistaQ2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="God Save the Queen"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/entradasQ2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00BCD4"
+                    android:text="entradas" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fechaQ3"
+                    android:layout_width="71dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="07 JUL"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/horaQ3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="JUE 20:30"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/lugarQ3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Palacio de la Ópera. La Coruña"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/artistaQ3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="god Save the Queen"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/entradasQ3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00BCD4"
+                    android:text="entradas" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fechaQ4"
+                    android:layout_width="71dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="16 JUL"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/horaQ4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="SAB 20:30"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/lugarQ4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Auditorio Murcia Parque, Murcia"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/artistaQ4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="God Save the Queen"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/entradasQ4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00BCD4"
+                    android:text="entradas" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

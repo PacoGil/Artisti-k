@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#202732"
+    tools:context=".BunburyActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/bunburyfecha" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fechaMes1"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="06 AGO"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:textAlignment="center">
+
+                <TextView
+                    android:id="@+id/hora1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SAB 20:00"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+                <TextView
+                    android:id="@+id/lugar1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Auditorio Municipal. Málaga"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+                <TextView
+                    android:id="@+id/artista"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bunbury"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/entradas1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:backgroundTint="#00BCD4"
+                android:text="entradas" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fechaMes2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="08 SEP"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:textAlignment="center">
+
+                <TextView
+                    android:id="@+id/hora2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="JUE 21:30"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/lugar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Teatro Generalife Granada"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/artista2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="101 Músicas. Bunbury"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/entradas2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:backgroundTint="#00BCD4"
+                android:text="entradas" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fechaMes3"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="10 SEP"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/hora3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SAB 21:00"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/lugar3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="WiZink Center. Madrid"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/artista3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bunbury"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/entrada3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:backgroundTint="#00BCD4"
+                android:text="entradas" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fecha4"
+                android:layout_width="29dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="24 SEP"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/hora4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SAB 21:30"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/lugar4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Plaza de toros de Valencia"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/artista4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bunbury"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/entradas4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#00BCD4"
+                android:text="entradas" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
