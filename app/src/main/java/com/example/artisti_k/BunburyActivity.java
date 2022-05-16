@@ -2,10 +2,12 @@ package com.example.artisti_k;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,11 +20,13 @@ import com.google.firebase.database.ValueEventListener;
 
 public class BunburyActivity extends AppCompatActivity {
 
-    TextView fechaB1, lugarB1, horaB1, artistaB1;
-    TextView fechaB2, lugarB2, horaB2, artistaB2;
+    /*TextView fechaB1, lugarB1, horaB1, artistaB1;
+    TextView fechaB2, lugarB2, horaB2, artistaB2;*/
+
+
 
     DatabaseReference databaseReference;
-    Button entradas, entradas2, entradas3, entradas4;
+    //Button entradas, entradas2, entradas3, entradas4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +34,7 @@ public class BunburyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bunbury);
 
-/*        fechaB1 = findViewById(R.id.fechaMes1);
+        /*fechaB1 = findViewById(R.id.fechaMes1);
         lugarB1 = findViewById(R.id.lugar1);
         horaB1 = findViewById(R.id.hora1);
         artistaB1 = findViewById(R.id.artista);
@@ -69,7 +73,6 @@ public class BunburyActivity extends AppCompatActivity {
 
 
 
-
         databaseReference= FirebaseDatabase.getInstance().getReference();
 
         databaseReference.child("evento").orderByChild("artista").equalTo("Bunbury")
@@ -82,6 +85,9 @@ public class BunburyActivity extends AppCompatActivity {
                         String fecha = snapshot.child("fecha").getValue().toString();
                         String hora = snapshot.child("hora").getValue().toString();
                         String id = snapshot.child("id").getValue().toString();
+
+                        //TODO:: ANDRES aqui tu creas una instancia de la clase Eventos que es la que tienes el hashmap. sigue en la linea 169
+
 
                         Eventos bunburyEventos = new Eventos();
                         bunburyEventos.setEvento(id, new Evento(artista, lugar, fecha, hora, id));
@@ -101,7 +107,7 @@ public class BunburyActivity extends AppCompatActivity {
                         LinearLayout.LayoutParams wrapContentTextParams = new LinearLayout.LayoutParams(
                                 LinearLayout.LayoutParams.WRAP_CONTENT,
                                 LinearLayout.LayoutParams.WRAP_CONTENT,
-                                2
+                                1
                         );
 
                         LinearLayout.LayoutParams wrapContentButtonParams = new LinearLayout.LayoutParams(
@@ -109,7 +115,7 @@ public class BunburyActivity extends AppCompatActivity {
                                 LinearLayout.LayoutParams.WRAP_CONTENT,
                                 0
                         );
-                        wrapContentTextParams.setMargins(30, 0,20, 40);
+                        wrapContentTextParams.setMargins(0, 0,20, 40);
 
                         LinearLayout llBunburyEvents = findViewById(R.id.llBunburyEvents);
                         LinearLayout eventParent = new LinearLayout(llBunburyEvents.getContext());
@@ -143,7 +149,7 @@ public class BunburyActivity extends AppCompatActivity {
                         Button botonEntradas = new Button(eventParent.getContext());
                         botonEntradas.setLayoutParams(wrapContentButtonParams);
                         botonEntradas.setText("entradas");
-                        botonEntradas.setBackgroundColor(2);
+                        botonEntradas.setBackgroundResource(R.color.mi);
                         botonEntradas.setId(View.generateViewId());
 
                         eventParent.addView(fechaTextView);
@@ -160,6 +166,7 @@ public class BunburyActivity extends AppCompatActivity {
                             public void onClick(View view) {
                                 System.out.println("what is view??? " + id);
                                 Intent intent = new Intent(BunburyActivity.this, CompraActivity.class);
+                                //TODO:: ANDRES y aqui creas el put extra para enviar los datos a la siguiente activity
                                 intent.putExtra("eventoId", id);
                                 startActivity(intent);
                             }

@@ -1,5 +1,6 @@
 package com.example.artisti_k;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,17 +20,21 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DatosEntrada extends AppCompatActivity {
 
     FirebaseAuth fAuth;
     DatabaseReference databaseReference;
-    TextView emailEntradas, numeroEntradas, eventoEntradas, lugarEvento, fechaEvento;
+    TextView emailEntradas, numeroEntradas, eventoEntradas, lugarEvento, fechaEvento, numEntr, totalPrecio, id2;
     EditText numTarjeta, mesTarjeta, anioTarjeta, cvv;
     Button compraEntrada;
-    Spinner spinner1;
+
+
 
 
 
@@ -42,8 +47,10 @@ public class DatosEntrada extends AppCompatActivity {
 
         emailEntradas = findViewById(R.id.emailTView);
         numeroEntradas = findViewById(R.id.numEntradasTv);
+        numEntr = findViewById(R.id.numEnt);
+        totalPrecio = findViewById(R.id.totalEntradas);
         eventoEntradas = findViewById(R.id.eventoTv);
-        spinner1 = findViewById(R.id.spinner);
+        id2 = findViewById(R.id.id);
         lugarEvento = findViewById(R.id.lugarEventoTv);
         fechaEvento = findViewById(R.id.fechaEventoTv);
         numTarjeta = findViewById(R.id.numeroTarjetaEd);
@@ -52,36 +59,58 @@ public class DatosEntrada extends AppCompatActivity {
         cvv = findViewById(R.id.cvvEd);
         compraEntrada = findViewById(R.id.comprarEntradasBtn);
 
+        //Instancia de Firebase Authentication y firebase Realtime Database
         fAuth=FirebaseAuth.getInstance();
         FirebaseUser user = fAuth.getCurrentUser();
 
-        databaseReference= FirebaseDatabase.getInstance().getReference();
+
 
         /*Nos muestra en el TextView el email con el que se ha registrado el usuario en la ventana de datos de usuario a través
-          de una instancia de firebase autentication.*/
+         de una instancia de firebase autentication.*/
+
         emailEntradas.setText(user.getEmail());
 
-        //Nos muestra en el Textview el número de entradas elegidas para comprar guardado en la base de datos eventos
+
+        //TODO:: ANDRES aqui intento hacer lo mismo pero como soy un caraja y no me entero de na pues no se por que no sale
+        Bundle extras = getIntent().getExtras();
+        String eventoId = extras.getSerializable("eventoId").toString();
 
 
-        String [] opciones = {"1","2","3","4","5","6","7","8"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_compra,opciones);
-        spinner1.setAdapter(adapter);
+        //Obtenemos de la tabla Eventos de Firebase el precio de las entradas de cada concierto que seleccionamos
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference
+                .child("evento")
+                .orderByChild("id")
+                .equalTo(eventoId)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                        for (DataSnapshot snapshot : datasnapshot.getChildren()){
+                            String artista = snapshot.child("artista").getValue().toString();
+                            String lugar = snapshot.child("lugar").getValue().toString();
+                            String fecha = snapshot.child("fecha").getValue().toString();
+                            String id = snapshot.child("id").getValue().toString();
 
-        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                            eventoEntradas.setText(artista);
+                            lugarEvento.setText(lugar);
+                            fechaEvento.setText(fecha);
+                            id2.setText(id);
+                        }
+                    }
 
-            }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+                    }
+                });
 
-            }
-        });
 
+
+
+        //Llamamos a la función de agregar el espacio en blanco al introducir la tarjeta
         numTarjeta.addTextChangedListener(textWatcher);
 
+        //Para introducir el número de la tarjeta de crédito
         numTarjeta.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -102,6 +131,7 @@ public class DatosEntrada extends AppCompatActivity {
             }
         });
 
+        //Introducir el número del mes de la tarjeta de credito
         mesTarjeta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,7 +151,7 @@ public class DatosEntrada extends AppCompatActivity {
             }
         });
 
-        // si el mes introducido es enero la tarjeta esta caducada
+        // Según el mes que se introduzca estará la tarjera caducada o no.
         anioTarjeta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,6 +179,7 @@ public class DatosEntrada extends AppCompatActivity {
             }
         });
 
+        //Código de seguridad de 3 dígitos
         cvv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -163,20 +194,9 @@ public class DatosEntrada extends AppCompatActivity {
                 }
             }
         });
-
-
-        Intent intent = getIntent();
-        //Datos Bumbury 2
-        String mesageB2 = intent.getStringExtra("LugarB2");
-        String mesageB21 = intent.getStringExtra("FechaB2");
-        String mesageB22 = intent.getStringExtra("ArtistaB2");
-        lugarEvento.setText(mesageB2);
-        fechaEvento.setText(mesageB21);
-        eventoEntradas.setText(mesageB22);
-
-
     }
 
+    //Función que recoge el numero de la tarjeta y añade un espacio en blanco cada 4 numeros.
     private TextWatcher textWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -199,7 +219,4 @@ public class DatosEntrada extends AppCompatActivity {
             }
         }
     };
-
-
-
 }
