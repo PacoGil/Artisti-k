@@ -18,14 +18,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
+
 public class CompraActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     Spinner spinner1;
     Button back, buy;
-    TextView precioTextView;
-    String preciobd, id;
+    TextView precioTextView, idVenta;
+    String preciobd, id, artista, lugar, fecha;
     Double precioDigitos;
-
+    Integer selected;
+    CompraEntradas compra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class CompraActivity extends AppCompatActivity {
         back = findViewById(R.id.volver);
         buy = findViewById(R.id.compra);
         precioTextView = findViewById(R.id.price);
+
 
         //TODO:: ANDRES Aqui recoges el put extra de los datos del artista de Eventos y haces la query
         Bundle extras = getIntent().getExtras();
@@ -53,8 +57,13 @@ public class CompraActivity extends AppCompatActivity {
                     System.out.println( "what is ......." + dataSnapshot);
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         preciobd = snapshot.child("entrada").getValue().toString();
-                        String id = snapshot.child("id").getValue().toString();
+                        id = snapshot.child("id").getValue().toString();
+                        artista = snapshot.child("artista").getValue().toString();
+                        lugar = snapshot.child("lugar").getValue().toString();
+                        fecha = snapshot.child("fecha").getValue().toString();
                         precioTextView.setText(preciobd);
+
+
                     }
                 }
 
@@ -73,14 +82,13 @@ public class CompraActivity extends AppCompatActivity {
             @Override
 
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Integer selected = i + 1;
+                selected = i + 1;
                 if (selected <= 1) {
                     precioTextView.setText(preciobd);
                 } else {
                 precioDigitos = Double.parseDouble(preciobd);
                 precioDigitos = precioDigitos * selected;
                 precioTextView.setText(Double.toString(precioDigitos));
-
                 }
             }
 
@@ -101,7 +109,9 @@ public class CompraActivity extends AppCompatActivity {
         buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                compra = new CompraEntradas(id, selected.toString(), precioTextView.getText().toString(), artista, lugar, fecha);
                 Intent intent = new Intent(CompraActivity.this, DatosEntrada.class);
+                intent.putExtra("compraEvento", String.valueOf((CompraEntradas) compra));
                 startActivity(intent);
             }
         });

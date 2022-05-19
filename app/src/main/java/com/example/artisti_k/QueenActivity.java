@@ -25,52 +25,14 @@ import java.util.List;
 public class QueenActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference;
-    Button entradasQu, entradasQu2, entradasQu3, entradasQu4,baseDatos;
-    float precioEntradaQ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_queen);
 
-        /*entradasQu = findViewById(R.id.entradasQ);
-        entradasQu2 = findViewById(R.id.entradasQ2);
-        entradasQu3 = findViewById(R.id.entradasQ3);
-        entradasQu4 = findViewById(R.id.entradasQ4);
-        precioEntradaQ = 67F;
-
-        entradasQu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(QueenActivity.this, CompraActivity.class);
-                startActivity(intent);
-
-            }
-        });
-        entradasQu2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(QueenActivity.this, CompraActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        entradasQu3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(QueenActivity.this, CompraActivity.class);
-                startActivity(intent);
-            }
-        });
-        entradasQu4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(QueenActivity.this, CompraActivity.class);
-                startActivity(intent);
-            }
-        });*/
-
         databaseReference = FirebaseDatabase.getInstance().getReference();
+
         databaseReference.child("evento").orderByChild("artista").equalTo("God Save the Queen")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -171,7 +133,6 @@ public class QueenActivity extends AppCompatActivity {
                     public void onCancelled(DatabaseError databaseError) {
                     }
                 });
-
 
     }
 }

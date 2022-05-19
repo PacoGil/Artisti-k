@@ -9,6 +9,7 @@
     tools:context=".DatosEntrada">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -25,19 +26,36 @@
             android:layout_width="match_parent"
             android:layout_height="20dp" />
 
-        <TextView
-            android:id="@+id/emailTView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="Email"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="16sp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:text="Email:"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/emailTView"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:hint="Email"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,81 +64,152 @@
 
             <TextView
                 android:id="@+id/numEntradasTv"
-                android:layout_width="273dp"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:hint=" Número de entradas:"
-                android:textAlignment="center"
-                android:textColorHint="@color/white"
+                android:text="Número de entradas:"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/numEnt"
-                android:layout_width="68dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:textColor="@color/white" />
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="20dp" />
 
-        <TextView
-            android:id="@+id/totalEntradas"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="total"
-            android:textAlignment="center"
-            android:textColorHint="@color/white"
-            android:textSize="16sp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/totalPrecio"
+                android:layout_width="392dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:text="Precio total:"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/totalEntradas"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:hint="total"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="20dp" />
 
-        <TextView
-            android:id="@+id/eventoTv"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="evento"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:textColorHint="@color/white"
-            android:textSize="16sp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/artista"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:text="Artista:"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/eventoTv"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:hint="evento"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="20dp" />
 
-        <TextView
-            android:id="@+id/lugarEventoTv"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="lugar evento"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:textColorHint="@color/white"
-            android:textSize="16sp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/event"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="Dirección:"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/lugarEventoTv"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:hint="lugar evento"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="20dp" />
 
-        <TextView
-            android:id="@+id/fechaEventoTv"
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="fecha evento"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:textColorHint="@color/white"
-            android:textSize="16sp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fechaev"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="Fecha:"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/fechaEventoTv"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:hint="fecha evento"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
+            android:layout_height="20dp" />
 
 
         <EditText
@@ -129,8 +218,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="numero tarjeta"
-            android:maxLength="19"
             android:inputType="number"
+            android:maxLength="19"
             android:minHeight="48dp"
             android:textAlignment="center"
             android:textColor="@drawable/colorletter"
@@ -153,9 +242,10 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Mes"
-                android:maxLength="2"
-                android:textColor="@drawable/colorletter"
                 android:inputType="number"
+                android:maxLength="2"
+                android:textAlignment="center"
+                android:textColor="@drawable/colorletter"
                 android:textColorHint="@color/white"
                 tools:ignore="TouchTargetSizeCheck" />
 
@@ -166,8 +256,9 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Año"
-                android:maxLength="2"
                 android:inputType="number"
+                android:maxLength="2"
+                android:textAlignment="center"
                 android:textColor="@drawable/colorletter"
                 android:textColorHint="@color/white"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -179,8 +270,9 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="CVV"
-                android:maxLength="3"
                 android:inputType="number"
+                android:maxLength="3"
+                android:textAlignment="center"
                 android:textColor="@drawable/colorletter"
                 android:textColorHint="@color/white"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -204,8 +296,20 @@
         android:id="@+id/id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:visibility="invisible"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="29dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/idEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toStartOf="@+id/id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

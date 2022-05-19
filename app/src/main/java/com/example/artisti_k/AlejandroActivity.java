@@ -25,9 +25,6 @@ import java.util.List;
 public class AlejandroActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference;
-    Button entradasAl, entradasAl2, entradasAl3, entradasAl4;
-    float precioEntradaA;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,45 +32,6 @@ public class AlejandroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_alejandro);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        /*entradasAl = findViewById(R.id.entradasA);
-        entradasAl2 = findViewById(R.id.entradasA2);
-        entradasAl3 = findViewById(R.id.entradasA3);
-        entradasAl4 = findViewById(R.id.entradasA4);
-        precioEntradaA = 105F;
-
-
-
-        entradasAl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AlejandroActivity.this, CompraActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        entradasAl2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AlejandroActivity.this, CompraActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        entradasAl3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AlejandroActivity.this, CompraActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        entradasAl4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AlejandroActivity.this, CompraActivity.class);
-                startActivity(intent);
-            }
-        });*/
 
         databaseReference.child("evento").orderByChild("artista").equalTo("Alejandro Sanz")
                 .addListenerForSingleValueEvent(new ValueEventListener() {

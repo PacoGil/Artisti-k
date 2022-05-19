@@ -28,7 +28,7 @@ import java.util.List;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    Button galeria, saveData,logOut;
+    Button galeria, saveData,logOut, historicoCompra;
     EditText nombreEd, apellidosEd, phonEd;
     TextView emailTv;
     ImageView imagen;
@@ -49,19 +49,12 @@ public class SettingsActivity extends AppCompatActivity {
         phonEd = findViewById(R.id.phoneEdit);
         emailTv = findViewById(R.id.emailView);
         saveData = findViewById(R.id.comprarEntradas);
+        historicoCompra = findViewById(R.id.historicoButton);
         logOut = findViewById(R.id.logOut);
         databaseReference= FirebaseDatabase.getInstance().getReference();
 
         fAuth = FirebaseAuth.getInstance();
         FirebaseUser user = fAuth.getCurrentUser();
-
-        //Funcionalidad botón de cerrar sesión
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
-            }
-        });
 
         //Con este lanzador de actividad, programamos la apertura de la galería de imagenes del teléfono
         launcherGalery = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
@@ -82,6 +75,22 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 agregarUsuario();
+            }
+        });
+
+        historicoCompra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingsActivity.this, HistoricoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Funcionalidad botón de cerrar sesión
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             }
         });
 

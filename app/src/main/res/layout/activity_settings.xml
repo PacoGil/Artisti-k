@@ -23,7 +23,7 @@
         <ImageView
             android:id="@+id/imagenSet"
             android:layout_width="match_parent"
-            android:layout_height="185dp"
+            android:layout_height="152dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <Space
@@ -117,13 +117,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/comprarEntradas"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="#00BCD4"
                 android:text="guardar datos" />
@@ -133,14 +133,25 @@
                 android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/logOut"
+                android:id="@+id/historicoButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#00BCD4"
-                android:text="cerrar sesión" />
+                android:text="Histórico  compras" />
 
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/logOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00BCD4"
+            android:text="cerrar sesión" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

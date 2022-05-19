@@ -1,6 +1,7 @@
 package com.example.artisti_k;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,15 +28,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class DatosEntrada extends AppCompatActivity {
 
     FirebaseAuth fAuth;
     DatabaseReference databaseReference;
-    TextView emailEntradas, numeroEntradas, eventoEntradas, lugarEvento, fechaEvento, numEntr, totalPrecio, id2;
+    TextView emailEntradas, numeroEntradas, eventoEntradas, lugarEvento, fechaEvento, numEntr, totalPrecio, id2, idEvento;
     EditText numTarjeta, mesTarjeta, anioTarjeta, cvv;
     Button compraEntrada;
-
-
+    String fechaReal;
+    List<ConfirmacionCompra> listaCompra = new ArrayList<>();
 
 
 
@@ -51,6 +61,7 @@ public class DatosEntrada extends AppCompatActivity {
         totalPrecio = findViewById(R.id.totalEntradas);
         eventoEntradas = findViewById(R.id.eventoTv);
         id2 = findViewById(R.id.id);
+        idEvento = findViewById(R.id.idEvent);
         lugarEvento = findViewById(R.id.lugarEventoTv);
         fechaEvento = findViewById(R.id.fechaEventoTv);
         numTarjeta = findViewById(R.id.numeroTarjetaEd);
@@ -71,41 +82,19 @@ public class DatosEntrada extends AppCompatActivity {
         emailEntradas.setText(user.getEmail());
 
 
-        //TODO:: ANDRES aqui intento hacer lo mismo pero como soy un caraja y no me entero de na pues no se por que no sale
+
         Bundle extras = getIntent().getExtras();
-        String eventoId = extras.getSerializable("eventoId").toString();
+        Serializable compraEvento =  extras.getSerializable("compraEvento");
 
+        System.out.println(compraEvento);
 
-        //Obtenemos de la tabla Eventos de Firebase el precio de las entradas de cada concierto que seleccionamos
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference
-                .child("evento")
-                .orderByChild("id")
-                .equalTo(eventoId)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                        for (DataSnapshot snapshot : datasnapshot.getChildren()){
-                            String artista = snapshot.child("artista").getValue().toString();
-                            String lugar = snapshot.child("lugar").getValue().toString();
-                            String fecha = snapshot.child("fecha").getValue().toString();
-                            String id = snapshot.child("id").getValue().toString();
+        /*totalPrecio.setText(compraEntrada.get);
+        numEntr.setText(numEntradas);
+        idEvento.setText(eventoId);*/
 
-                            eventoEntradas.setText(artista);
-                            lugarEvento.setText(lugar);
-                            fechaEvento.setText(fecha);
-                            id2.setText(id);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-
-
+       /* eventoEntradas.setText(artista);
+        lugarEvento.setText(lugar);
+        fechaEvento.setText(fecha);*/
 
         //Llamamos a la función de agregar el espacio en blanco al introducir la tarjeta
         numTarjeta.addTextChangedListener(textWatcher);
@@ -194,6 +183,44 @@ public class DatosEntrada extends AppCompatActivity {
                 }
             }
         });
+
+        Calendar calendar = Calendar.getInstance();
+        fechaReal = DateFormat.getDateInstance().format(calendar.getTime());
+        System.out.println("QUE ES FECHAREAL " + fechaReal);
+
+        compraEntrada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String tarjeta = numTarjeta.getText().toString().trim();
+                String mes = mesTarjeta.getText().toString().trim();
+                String anio = anioTarjeta.getText().toString().trim();
+                String codigo = cvv.getText().toString().trim();
+
+                if (TextUtils.isEmpty(tarjeta)){
+                    numTarjeta.setError("Introduce el número de tarjeta");
+                    return;
+                }
+                if (TextUtils.isEmpty(mes)){
+                    mesTarjeta.setError("Introduce el mes");
+                    return;
+                }
+                if (TextUtils.isEmpty(anio)){
+                    anioTarjeta.setError("Introduce el año");
+                    return;
+                }
+                if (TextUtils.isEmpty(codigo)){
+                    cvv.setError("Introduce el código de seguridad");
+                    return;
+                }
+
+
+
+                Intent intent = new Intent(DatosEntrada.this, FinalActivity.class);
+                Toast.makeText(DatosEntrada.this,"Compra realizada", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
     }
 
     //Función que recoge el numero de la tarjeta y añade un espacio en blanco cada 4 numeros.
@@ -219,4 +246,28 @@ public class DatosEntrada extends AppCompatActivity {
             }
         }
     };
+
+   /* public void agregarCompra(){
+        listaCompra.clear();
+        ConfirmacionCompra compra = new ConfirmacionCompra(
+                numeroEntradas.getText().toString(),
+                totalPrecio.getText().toString(),
+                eventoEntradas.getText().toString(),
+                lugarEvento.getText().toString(),
+                fechaEvento.getText().toString(),
+                fechaReal,
+                id2.getText().toString(),
+                //idEvento
+
+        );
+        databaseReference.child("compra").push().setValue(compra,
+                new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference databaseReference) {
+                        Toast.makeText(DatosEntrada.this, "Compra realizada con éxito",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }*/
+
 }

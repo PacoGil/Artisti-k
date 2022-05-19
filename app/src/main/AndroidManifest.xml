@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission
         android:name="android.hardware.camera"
-        android:required="true"></uses-permission>
+        android:required="true" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -18,47 +18,42 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Artistik">
-
+        <activity
+            android:name=".HistoricoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".FinalActivity"
+            android:exported="true" />
         <activity
             android:name=".DatosEntrada"
             android:exported="true" />
-
         <activity
             android:name=".CompraActivity"
             android:exported="true" />
-
         <activity
             android:name=".SettingsActivity"
             android:exported="true" />
-
         <activity
             android:name=".GunsActivity"
             android:exported="true" />
-
         <activity
             android:name=".QueenActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".AlejandroActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".CarrascoActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".BunburyActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".RegisterActivity"
             android:exported="true" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true" />
-
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -68,8 +63,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

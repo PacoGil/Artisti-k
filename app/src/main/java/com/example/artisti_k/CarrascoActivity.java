@@ -24,12 +24,7 @@ import java.util.List;
 
 public class CarrascoActivity extends AppCompatActivity {
 
-    Button entradasM, entradasM1, entradasM2,baseDatos;
-    float precioEntradaM;
     DatabaseReference databaseReference;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,33 +135,6 @@ public class CarrascoActivity extends AppCompatActivity {
 
                     }
                 });
-
-        /*entradasM = findViewById(R.id.entradasM);
-        entradasM1 = findViewById(R.id.entradasM2);
-        entradasM2 = findViewById(R.id.entradasM3);
-        precioEntradaM = 55F;
-
-        entradasM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CarrascoActivity.this, CompraActivity.class);
-                startActivity(intent);
-            }
-        });
-        entradasM1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CarrascoActivity.this, CompraActivity.class);
-                startActivity(intent);
-            }
-        });
-        entradasM2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CarrascoActivity.this, CompraActivity.class);
-                startActivity(intent);
-            }
-        });*/
 
     }
 }

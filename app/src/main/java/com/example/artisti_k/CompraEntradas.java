@@ -1,19 +1,29 @@
 package com.example.artisti_k;
 
 public class CompraEntradas {
+
     String entradas;  // numero de entradas elegidas
-    String comprador; // usuario email
-    String evento;    // evento elegido
-    String lugarEvento; //
-    String fechaLugarEvento; //
+    String artista;    // evento elegido
+    String lugarEvento; // lugar del evento
+    String fechaLugarEvento; // fecha del evento
+    String precioTotal; // precio total de las entradas
+    String idEvento;
 
-    public CompraEntradas(String entradas, String comprador, String evento, String lugarEvento, String fechaLugarEvento) {
+    public CompraEntradas(String idEvento , String entradas, String artista, String lugarEvento, String fechaLugarEvento, String precioTotal) {
+        this.idEvento = idEvento;
         this.entradas = entradas;
-        this.comprador = comprador;
-
-        this.evento = evento;
+        this.artista = artista;
         this.lugarEvento = lugarEvento;
         this.fechaLugarEvento = fechaLugarEvento;
+        this.precioTotal = precioTotal;
+    }
+
+    public String getIdEvento() {
+        return idEvento;
+    }
+
+    public void setIdEvento(String idEvento) {
+        this.idEvento = idEvento;
     }
 
     public String getEntradas() {
@@ -24,20 +34,12 @@ public class CompraEntradas {
         this.entradas = entradas;
     }
 
-    public String getComprador() {
-        return comprador;
-    }
-
-    public void setComprador(String comprador) {
-        this.comprador = comprador;
-    }
-
     public String getEvento() {
-        return evento;
+        return artista;
     }
 
     public void setEvento(String evento) {
-        this.evento = evento;
+        this.artista = evento;
     }
 
     public String getLugarEvento() {
@@ -54,5 +56,13 @@ public class CompraEntradas {
 
     public void setFechaLugarEvento(String fechaLugarEvento) {
         this.fechaLugarEvento = fechaLugarEvento;
+    }
+
+    public String getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(String precioTotal) {
+        this.precioTotal = precioTotal;
     }
 }

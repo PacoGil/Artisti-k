@@ -25,27 +25,14 @@ import java.util.List;
 public class GunsActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference;
-    Button entradasGuns;
-    float precioEntradaG;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guns);
 
-        /*entradasGuns = findViewById(R.id.entradasG);
-        precioEntradaG = 83F;
-
-        entradasGuns.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(GunsActivity.this, CompraActivity.class);
-                startActivity(intent);
-            }
-        });*/
-
         databaseReference = FirebaseDatabase.getInstance().getReference();
+
         databaseReference.child("evento").orderByChild("artista").equalTo("Guns N' Roses")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
