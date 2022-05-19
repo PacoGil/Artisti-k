@@ -111,7 +111,7 @@ public class CompraActivity extends AppCompatActivity {
             public void onClick(View view) {
                 compra = new CompraEntradas(id, selected.toString(), precioTextView.getText().toString(), artista, lugar, fecha);
                 Intent intent = new Intent(CompraActivity.this, DatosEntrada.class);
-                intent.putExtra("compraEvento", String.valueOf((CompraEntradas) compra));
+                intent.putExtra("compraEvento", compra);
                 startActivity(intent);
             }
         });

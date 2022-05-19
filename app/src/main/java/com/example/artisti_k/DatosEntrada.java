@@ -74,27 +74,19 @@ public class DatosEntrada extends AppCompatActivity {
         fAuth=FirebaseAuth.getInstance();
         FirebaseUser user = fAuth.getCurrentUser();
 
-
+        Bundle extras = getIntent().getExtras();
+        CompraEntradas compraEvento = (CompraEntradas) extras.getParcelable("compraEvento");
 
         /*Nos muestra en el TextView el email con el que se ha registrado el usuario en la ventana de datos de usuario a través
          de una instancia de firebase autentication.*/
-
         emailEntradas.setText(user.getEmail());
 
-
-
-        Bundle extras = getIntent().getExtras();
-        Serializable compraEvento =  extras.getSerializable("compraEvento");
-
-        System.out.println(compraEvento);
-
-        /*totalPrecio.setText(compraEntrada.get);
-        numEntr.setText(numEntradas);
-        idEvento.setText(eventoId);*/
-
-       /* eventoEntradas.setText(artista);
-        lugarEvento.setText(lugar);
-        fechaEvento.setText(fecha);*/
+        numEntr.setText(compraEvento.getEntradas());
+        totalPrecio.setText(compraEvento.getPrecioTotal());
+        idEvento.setText(compraEvento.getIdEvento());
+        eventoEntradas.setText(compraEvento.getArtista());
+        lugarEvento.setText(compraEvento.getLugarEvento());
+        fechaEvento.setText(compraEvento.getFechaLugarEvento());
 
         //Llamamos a la función de agregar el espacio en blanco al introducir la tarjeta
         numTarjeta.addTextChangedListener(textWatcher);
