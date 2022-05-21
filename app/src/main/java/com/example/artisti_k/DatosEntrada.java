@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -40,11 +41,12 @@ public class DatosEntrada extends AppCompatActivity {
 
     FirebaseAuth fAuth;
     DatabaseReference databaseReference;
-    TextView emailEntradas, numeroEntradas, eventoEntradas, lugarEvento, fechaEvento, numEntr, totalPrecio, id2, idEvento;
+    TextView emailEntradas, artista, lugarEvento, fechaEvento, numEntr, totalPrecio, id2, idEvento;
     EditText numTarjeta, mesTarjeta, anioTarjeta, cvv;
     Button compraEntrada;
     String fechaReal;
-    List<ConfirmacionCompra> listaCompra = new ArrayList<>();
+    ConfirmacionCompra compraConfirmada;
+
 
 
 
@@ -56,14 +58,15 @@ public class DatosEntrada extends AppCompatActivity {
 
 
         emailEntradas = findViewById(R.id.emailTView);
-        numeroEntradas = findViewById(R.id.numEntradasTv);
+
         numEntr = findViewById(R.id.numEnt);
         totalPrecio = findViewById(R.id.totalEntradas);
-        eventoEntradas = findViewById(R.id.eventoTv);
-        id2 = findViewById(R.id.id);
+        artista = findViewById(R.id.eventoTv);
+        //id2 = findViewById(R.id.id);
         idEvento = findViewById(R.id.idEvent);
         lugarEvento = findViewById(R.id.lugarEventoTv);
         fechaEvento = findViewById(R.id.fechaEventoTv);
+
         numTarjeta = findViewById(R.id.numeroTarjetaEd);
         mesTarjeta = findViewById(R.id.mesCaducidadEd);
         anioTarjeta = findViewById(R.id.añoCaducidadEd);
@@ -73,20 +76,26 @@ public class DatosEntrada extends AppCompatActivity {
         //Instancia de Firebase Authentication y firebase Realtime Database
         fAuth=FirebaseAuth.getInstance();
         FirebaseUser user = fAuth.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         Bundle extras = getIntent().getExtras();
-        CompraEntradas compraEvento = (CompraEntradas) extras.getParcelable("compraEvento");
+        CompraEntradas compraEvento = extras.getParcelable("compraEvento");
+
+
 
         /*Nos muestra en el TextView el email con el que se ha registrado el usuario en la ventana de datos de usuario a través
          de una instancia de firebase autentication.*/
         emailEntradas.setText(user.getEmail());
 
-        numEntr.setText(compraEvento.getEntradas());
-        totalPrecio.setText(compraEvento.getPrecioTotal());
+        id2.setText("OqdFAo");
         idEvento.setText(compraEvento.getIdEvento());
-        eventoEntradas.setText(compraEvento.getArtista());
+        numEntr.setText(compraEvento.getEntradas());
+        artista.setText(compraEvento.getArtista());
         lugarEvento.setText(compraEvento.getLugarEvento());
         fechaEvento.setText(compraEvento.getFechaLugarEvento());
+        totalPrecio.setText(compraEvento.getPrecioTotal());
+
+
 
         //Llamamos a la función de agregar el espacio en blanco al introducir la tarjeta
         numTarjeta.addTextChangedListener(textWatcher);
@@ -180,6 +189,9 @@ public class DatosEntrada extends AppCompatActivity {
         fechaReal = DateFormat.getDateInstance().format(calendar.getTime());
         System.out.println("QUE ES FECHAREAL " + fechaReal);
 
+
+
+
         compraEntrada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -207,12 +219,33 @@ public class DatosEntrada extends AppCompatActivity {
                 }
 
 
+                compraConfirmada = new ConfirmacionCompra(
+
+                        id2.getText().toString(),
+                        compraEvento.getIdEvento(),
+                        compraEvento.getArtista(),
+                        compraEvento.getLugarEvento(),
+                        compraEvento.getFechaLugarEvento(),
+                        compraEvento.getEntradas(),
+                        compraEvento.getPrecioTotal(),
+                        fechaReal
+                );
+
+                databaseReference.child("compra").push().setValue(compraConfirmada,
+                        new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference databaseReference) {
+                        Toast.makeText(DatosEntrada.this, "Compra realizada con écito",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
 
                 Intent intent = new Intent(DatosEntrada.this, FinalActivity.class);
-                Toast.makeText(DatosEntrada.this,"Compra realizada", Toast.LENGTH_SHORT).show();
+                intent.putExtra("idId", (Parcelable) compraConfirmada);
                 startActivity(intent);
             }
         });
+
     }
 
     //Función que recoge el numero de la tarjeta y añade un espacio en blanco cada 4 numeros.
@@ -239,27 +272,5 @@ public class DatosEntrada extends AppCompatActivity {
         }
     };
 
-   /* public void agregarCompra(){
-        listaCompra.clear();
-        ConfirmacionCompra compra = new ConfirmacionCompra(
-                numeroEntradas.getText().toString(),
-                totalPrecio.getText().toString(),
-                eventoEntradas.getText().toString(),
-                lugarEvento.getText().toString(),
-                fechaEvento.getText().toString(),
-                fechaReal,
-                id2.getText().toString(),
-                //idEvento
-
-        );
-        databaseReference.child("compra").push().setValue(compra,
-                new DatabaseReference.CompletionListener() {
-                    @Override
-                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference databaseReference) {
-                        Toast.makeText(DatosEntrada.this, "Compra realizada con éxito",Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-    }*/
 
 }

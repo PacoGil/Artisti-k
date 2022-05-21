@@ -24,8 +24,8 @@ public class CompraActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     Spinner spinner1;
     Button back, buy;
-    TextView precioTextView, idVenta;
-    String preciobd, id, artista, lugar, fecha;
+    TextView precioTextView;
+    String preciobd, idEv, artista, lugar, fecha;
     Double precioDigitos;
     Integer selected;
     CompraEntradas compra;
@@ -54,10 +54,10 @@ public class CompraActivity extends AppCompatActivity {
             .addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    System.out.println( "what is ......." + dataSnapshot);
+
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         preciobd = snapshot.child("entrada").getValue().toString();
-                        id = snapshot.child("id").getValue().toString();
+                        idEv = snapshot.child("id").getValue().toString();
                         artista = snapshot.child("artista").getValue().toString();
                         lugar = snapshot.child("lugar").getValue().toString();
                         fecha = snapshot.child("fecha").getValue().toString();
@@ -105,11 +105,13 @@ public class CompraActivity extends AppCompatActivity {
             }
         });
 
+
+
         //Botón para ir a la siguiente pantalla y realizar el pago
         buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                compra = new CompraEntradas(id, selected.toString(), precioTextView.getText().toString(), artista, lugar, fecha);
+                compra = new CompraEntradas(idEv, artista, lugar, fecha, selected.toString(), precioTextView.getText().toString());
                 Intent intent = new Intent(CompraActivity.this, DatosEntrada.class);
                 intent.putExtra("compraEvento", compra);
                 startActivity(intent);

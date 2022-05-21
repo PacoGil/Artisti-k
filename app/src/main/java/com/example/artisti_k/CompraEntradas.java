@@ -5,22 +5,21 @@ import android.os.Parcelable;
 
 public class CompraEntradas implements Parcelable {
 
-    String entradas;  // numero de entradas elegidas
+    String idEvento;  // numero de entradas elegidas
     String artista;    // evento elegido
     String lugarEvento; // lugar del evento
     String fechaLugarEvento; // fecha del evento
-    String precioTotal; // precio total de las entradas
-    String idEvento;
+    String entradas; // precio total de las entradas
+    String precioTotal;
 
-    public CompraEntradas(String idEvento , String entradas, String artista, String lugarEvento, String fechaLugarEvento, String precioTotal) {
+    public CompraEntradas(String idEvento , String artista, String lugarEvento, String fechaLugarEvento, String entradas, String precioTotal) {
         this.idEvento = idEvento;
-        this.entradas = entradas;
         this.artista = artista;
         this.lugarEvento = lugarEvento;
         this.fechaLugarEvento = fechaLugarEvento;
+        this.entradas = entradas;
         this.precioTotal = precioTotal;
     }
-
 
 
     public String getIdEvento() {
@@ -31,20 +30,12 @@ public class CompraEntradas implements Parcelable {
         this.idEvento = idEvento;
     }
 
-    public String getEntradas() {
-        return entradas;
-    }
-
-    public void setEntradas(String entradas) {
-        this.entradas = entradas;
-    }
-
     public String getArtista() {
         return artista;
     }
 
-    public void setArtista(String evento) {
-        this.artista = evento;
+    public void setArtista(String artista) {
+        this.artista = artista;
     }
 
     public String getLugarEvento() {
@@ -63,6 +54,14 @@ public class CompraEntradas implements Parcelable {
         this.fechaLugarEvento = fechaLugarEvento;
     }
 
+    public String getEntradas() {
+        return entradas;
+    }
+
+    public void setEntradas(String entradas) {
+        this.entradas = entradas;
+    }
+
     public String getPrecioTotal() {
         return precioTotal;
     }
@@ -78,30 +77,32 @@ public class CompraEntradas implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.entradas);
+
+        dest.writeString(this.idEvento);
         dest.writeString(this.artista);
         dest.writeString(this.lugarEvento);
         dest.writeString(this.fechaLugarEvento);
+        dest.writeString(this.entradas);
         dest.writeString(this.precioTotal);
-        dest.writeString(this.idEvento);
     }
 
     public void readFromParcel(Parcel source) {
-        this.entradas = source.readString();
+        this.idEvento = source.readString();
         this.artista = source.readString();
         this.lugarEvento = source.readString();
         this.fechaLugarEvento = source.readString();
+        this.entradas = source.readString();
         this.precioTotal = source.readString();
-        this.idEvento = source.readString();
     }
 
     protected CompraEntradas(Parcel in) {
-        this.entradas = in.readString();
+
+        this.idEvento = in.readString();
         this.artista = in.readString();
         this.lugarEvento = in.readString();
         this.fechaLugarEvento = in.readString();
+        this.entradas = in.readString();
         this.precioTotal = in.readString();
-        this.idEvento = in.readString();
     }
 
     public static final Parcelable.Creator<CompraEntradas> CREATOR = new Parcelable.Creator<CompraEntradas>() {

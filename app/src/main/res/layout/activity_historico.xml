@@ -22,10 +22,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/fechaHistorico"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Fecha Compra"
+            android:hint="Fecha Evento"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -36,7 +36,7 @@
             android:layout_height="20dp" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/artistaHistorico"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Evento"
@@ -50,7 +50,7 @@
             android:layout_height="20dp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/lugarHistorico"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Lugar Evento"
@@ -64,7 +64,7 @@
             android:layout_height="20dp" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/entradasHistorico"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Entradas"
@@ -78,7 +78,7 @@
             android:layout_height="20dp" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/precioHistorico"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Precio Total"
@@ -104,5 +104,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         app:layout_constraintVertical_bias="0.358" />
+
+    <TextView
+        android:id="@+id/idHistorico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
