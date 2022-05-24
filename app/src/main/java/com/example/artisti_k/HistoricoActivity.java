@@ -37,8 +37,8 @@ public class HistoricoActivity extends AppCompatActivity {
 
 
         Bundle extras = getIntent().getExtras();
-        idID = extras.getParcelable("idId");
-
+        //idID = extras.getString("idId");
+        idID = "OqdFEo";
         databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference
                 .child("compra")
@@ -46,18 +46,26 @@ public class HistoricoActivity extends AppCompatActivity {
                 .equalTo(idID)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        fechaHis = snapshot.child("fecha").getValue().toString();
-                        artistaHis = snapshot.child("artista").getValue().toString();
-                        lugarHis = snapshot.child("lugar").getValue().toString();
-                        entradasHis = snapshot.child("entradas").getValue().toString();
-                        totalHis = snapshot.child("total").getValue().toString();
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        ConfirmacionCompra compraNueva = snapshot.getValue(ConfirmacionCompra.class);
 
-                        fechaHistory.setText(fechaHis);
-                        artistaHistory.setText(artistaHis);
-                        lugarHistory.setText(lugarHis);
-                        entradasHistory.setText(entradasHis);
-                        totalHistory.setText(totalHis);
+                        System.out.println("What is-------" + compraNueva.getArtista());
+                        System.out.println("What is-------" + compraNueva.getId());
+
+                            fechaHis = snapshot.child("fecha").getValue().toString();
+                            artistaHis = snapshot.child("artista").getValue().toString();
+                            lugarHis = snapshot.child("lugar").getValue().toString();
+                            entradasHis = snapshot.child("entradas").getValue().toString();
+                            totalHis = snapshot.child("total").getValue().toString();
+
+                            fechaHistory.setText(fechaHis);
+                            artistaHistory.setText(artistaHis);
+                            lugarHistory.setText(lugarHis);
+                            entradasHistory.setText(entradasHis);
+                            totalHistory.setText(totalHis);
+                        }
+
                     }
 
                     @Override

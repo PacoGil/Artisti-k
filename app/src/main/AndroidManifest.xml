@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Artistik">
         <activity
+            android:name=".SelecHistorico"
+            android:exported="true" />
+        <activity
             android:name=".HistoricoActivity"
             android:exported="true" />
         <activity

@@ -29,8 +29,10 @@ public class BunburyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bunbury);
 
         databaseReference= FirebaseDatabase.getInstance().getReference();
-
-        databaseReference.child("evento").orderByChild("artista").equalTo("Bunbury")
+        databaseReference
+                .child("evento")
+                .orderByChild("artista")
+                .equalTo("Bunbury")
             .addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -42,8 +44,6 @@ public class BunburyActivity extends AppCompatActivity {
                         String id = snapshot.child("id").getValue().toString();
 
                         //TODO:: ANDRES aqui tu creas una instancia de la clase Eventos que es la que tienes el hashmap. sigue en la linea 169
-
-
                         Eventos bunburyEventos = new Eventos();
                         bunburyEventos.setEvento(id, new Evento(artista, lugar, fecha, hora, id));
 

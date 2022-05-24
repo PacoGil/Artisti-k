@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -41,16 +42,18 @@ public class DatosEntrada extends AppCompatActivity {
 
     FirebaseAuth fAuth;
     DatabaseReference databaseReference;
-    TextView emailEntradas, artista, lugarEvento, fechaEvento, numEntr, totalPrecio, id2, idEvento;
+    FirebaseAuth fauth;
+    TextView emailEntradas, artista, lugarEvento, fechaEvento, numEntr, totalPrecio, idEvento;
     EditText numTarjeta, mesTarjeta, anioTarjeta, cvv;
     Button compraEntrada;
-    String fechaReal;
+    String fechaReal, id2, emailConfirma;
     ConfirmacionCompra compraConfirmada;
 
 
 
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +65,6 @@ public class DatosEntrada extends AppCompatActivity {
         numEntr = findViewById(R.id.numEnt);
         totalPrecio = findViewById(R.id.totalEntradas);
         artista = findViewById(R.id.eventoTv);
-        //id2 = findViewById(R.id.id);
         idEvento = findViewById(R.id.idEvent);
         lugarEvento = findViewById(R.id.lugarEventoTv);
         fechaEvento = findViewById(R.id.fechaEventoTv);
@@ -87,13 +89,15 @@ public class DatosEntrada extends AppCompatActivity {
          de una instancia de firebase autentication.*/
         emailEntradas.setText(user.getEmail());
 
-        id2.setText("OqdFAo");
+
+        id2 = "OqdFAo";
         idEvento.setText(compraEvento.getIdEvento());
         numEntr.setText(compraEvento.getEntradas());
         artista.setText(compraEvento.getArtista());
         lugarEvento.setText(compraEvento.getLugarEvento());
         fechaEvento.setText(compraEvento.getFechaLugarEvento());
         totalPrecio.setText(compraEvento.getPrecioTotal());
+        emailConfirma = user.getEmail();
 
 
 
@@ -221,27 +225,30 @@ public class DatosEntrada extends AppCompatActivity {
 
                 compraConfirmada = new ConfirmacionCompra(
 
-                        id2.getText().toString(),
+                        id2,
                         compraEvento.getIdEvento(),
                         compraEvento.getArtista(),
                         compraEvento.getLugarEvento(),
                         compraEvento.getFechaLugarEvento(),
                         compraEvento.getEntradas(),
                         compraEvento.getPrecioTotal(),
-                        fechaReal
+                        fechaReal,
+                        emailConfirma
+
                 );
 
                 databaseReference.child("compra").push().setValue(compraConfirmada,
                         new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference databaseReference) {
-                        Toast.makeText(DatosEntrada.this, "Compra realizada con écito",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DatosEntrada.this, "Compra realizada con éxito",Toast.LENGTH_SHORT).show();
                     }
                 });
 
 
                 Intent intent = new Intent(DatosEntrada.this, FinalActivity.class);
-                intent.putExtra("idId", (Parcelable) compraConfirmada);
+                System.out.println("WHAT ISSSSSSSSS THIS SHIT ---- " + compraConfirmada.getUsuario());
+                intent.putExtra("idId", id2);
                 startActivity(intent);
             }
         });

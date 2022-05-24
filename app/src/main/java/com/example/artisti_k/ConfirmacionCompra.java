@@ -10,8 +10,12 @@ public class ConfirmacionCompra {
     String entradas;
     String total;
     String fechaCompra;
+    String usuario;
 
-    public ConfirmacionCompra(String id, String idEvento, String artista, String lugar, String fecha, String entradas, String total, String fechaCompra) {
+    public ConfirmacionCompra() {
+    }
+
+    public ConfirmacionCompra(String id, String idEvento, String artista, String lugar, String fecha, String entradas, String total, String fechaCompra, String usuario) {
         this.id = id;
         this.idEvento = idEvento;
         this.artista = artista;
@@ -20,6 +24,7 @@ public class ConfirmacionCompra {
         this.entradas = entradas;
         this.total = total;
         this.fechaCompra = fechaCompra;
+        this.usuario = usuario;
     }
 
     public String getId() {
@@ -84,5 +89,13 @@ public class ConfirmacionCompra {
 
     public void setFechaCompra(String fechaCompra) {
         this.fechaCompra = fechaCompra;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String email) {
+        this.usuario = usuario;
     }
 }
