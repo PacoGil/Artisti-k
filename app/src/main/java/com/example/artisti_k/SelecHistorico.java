@@ -39,7 +39,7 @@ public class SelecHistorico extends AppCompatActivity {
         setContentView(R.layout.activity_selec_historico);
 
 
-        listView = findViewById(R.id.list_View);
+        //listView = findViewById(R.id.list_View);
 
         databaseReference= FirebaseDatabase.getInstance().getReference("compra");
         databaseReference
