@@ -26,6 +26,8 @@ public class HistoricoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("HEREEEEE??? ");
+
         setContentView(R.layout.activity_historico);
 
         volverUser = findViewById(R.id.volverUsuario);
@@ -35,10 +37,9 @@ public class HistoricoActivity extends AppCompatActivity {
         entradasHistory = findViewById(R.id.entradasHistorico);
         totalHistory = findViewById(R.id.precioHistorico);
 
-
         Bundle extras = getIntent().getExtras();
         //idID = extras.getString("idId");
-        idID = "OqdFEo";
+        idID = "abc123";
         databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference
                 .child("compra")
@@ -49,6 +50,7 @@ public class HistoricoActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         ConfirmacionCompra compraNueva = snapshot.getValue(ConfirmacionCompra.class);
+                        System.out.println("compraNueva??? " + compraNueva);
 
                         System.out.println("What is-------" + compraNueva.getArtista());
                         System.out.println("What is-------" + compraNueva.getId());

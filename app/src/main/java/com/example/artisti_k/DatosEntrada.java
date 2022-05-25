@@ -46,7 +46,7 @@ public class DatosEntrada extends AppCompatActivity {
     TextView emailEntradas, artista, lugarEvento, fechaEvento, numEntr, totalPrecio, idEvento;
     EditText numTarjeta, mesTarjeta, anioTarjeta, cvv;
     Button compraEntrada;
-    String fechaReal, id2, emailConfirma;
+    String fechaReal, id2, userId;
     ConfirmacionCompra compraConfirmada;
 
 
@@ -97,7 +97,7 @@ public class DatosEntrada extends AppCompatActivity {
         lugarEvento.setText(compraEvento.getLugarEvento());
         fechaEvento.setText(compraEvento.getFechaLugarEvento());
         totalPrecio.setText(compraEvento.getPrecioTotal());
-        emailConfirma = user.getEmail();
+        userId = user.getUid();
 
 
 
@@ -233,8 +233,7 @@ public class DatosEntrada extends AppCompatActivity {
                         compraEvento.getEntradas(),
                         compraEvento.getPrecioTotal(),
                         fechaReal,
-                        emailConfirma
-
+                        userId
                 );
 
                 databaseReference.child("compra").push().setValue(compraConfirmada,

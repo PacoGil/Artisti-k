@@ -82,6 +82,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SettingsActivity.this, SelecHistorico.class);
+                System.out.println("TESTING::::::::");
                 startActivity(intent);
             }
         });

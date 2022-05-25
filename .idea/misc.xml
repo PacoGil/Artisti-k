@@ -24,17 +24,21 @@
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_datos_entrada.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_final.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_guns.xml" value="0.21739130434782608" />
-        <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_historico.xml" value="0.264" />
+        <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_historico.xml" value="0.1" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_main.xml" value="0.24094202898550723" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_queen.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_selec_historico.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_settings.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/spinner_compra.xml" value="0.20652173913043478" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/mipmap-anydpi-v26/ic_launcher_logo.xml" value="0.19814814814814816" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/mipmap-anydpi-v26/ic_launcher_logo_round.xml" value="0.19814814814814816" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.12604166666666666" />
+        <entry key="app/src/main/res/layout/activity_alejandro.xml" value="0.20878623188405798" />
+        <entry key="app/src/main/res/layout/activity_bunbury.xml" value="0.20878623188405798" />
+        <entry key="app/src/main/res/layout/activity_datos_entrada.xml" value="0.20878623188405798" />
+        <entry key="app/src/main/res/layout/activity_selec_historico.xml" value="0.20878623188405798" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.20878623188405798" />
       </map>
     </option>
   </component>

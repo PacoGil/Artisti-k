@@ -62,8 +62,6 @@ public class CompraActivity extends AppCompatActivity {
                         lugar = snapshot.child("lugar").getValue().toString();
                         fecha = snapshot.child("fecha").getValue().toString();
                         precioTextView.setText(preciobd);
-
-
                     }
                 }
 
