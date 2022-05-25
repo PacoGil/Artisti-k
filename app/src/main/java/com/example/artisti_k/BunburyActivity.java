@@ -51,26 +51,29 @@ public class BunburyActivity extends AppCompatActivity {
                                 LinearLayout.LayoutParams.MATCH_PARENT,
                                 LinearLayout.LayoutParams.WRAP_CONTENT
                         );
-                        parentContentParams.setMargins(0, 40, 0, 0);
+                        parentContentParams.setMargins(0, 100, 0, 20);
 
                         LinearLayout.LayoutParams wrapContentParams = new LinearLayout.LayoutParams(
                                 LinearLayout.LayoutParams.WRAP_CONTENT,
-                                LinearLayout.LayoutParams.WRAP_CONTENT,
-                                2
+                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                1
                         );
+                        wrapContentParams.setMargins(10, 0,0, 10);
 
                         LinearLayout.LayoutParams wrapContentTextParams = new LinearLayout.LayoutParams(
                                 LinearLayout.LayoutParams.WRAP_CONTENT,
                                 LinearLayout.LayoutParams.WRAP_CONTENT,
-                                1
+                                8
                         );
+                        wrapContentTextParams.setMargins(25, 0,25, 0);
 
                         LinearLayout.LayoutParams wrapContentButtonParams = new LinearLayout.LayoutParams(
                                 LinearLayout.LayoutParams.WRAP_CONTENT,
                                 LinearLayout.LayoutParams.WRAP_CONTENT,
-                                0
+                                1
+
                         );
-                        wrapContentTextParams.setMargins(0, 0,20, 40);
+                       wrapContentButtonParams.setMargins(0, 20,0, 20);
 
                         LinearLayout llBunburyEvents = findViewById(R.id.llBunburyEvents);
                         LinearLayout eventParent = new LinearLayout(llBunburyEvents.getContext());

@@ -45,32 +45,33 @@ public class QueenActivity extends AppCompatActivity {
                             String id = snapshot.child("id").getValue().toString();
 
                             Eventos queenEventos = new Eventos();
-                            queenEventos.setEvento(id, new Evento(artista, lugar, fecha, hora, id));
 
                             LinearLayout.LayoutParams parentContentParams = new LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.MATCH_PARENT,
                                     LinearLayout.LayoutParams.WRAP_CONTENT
                             );
-                            parentContentParams.setMargins(0, 40, 0, 0);
+                            parentContentParams.setMargins(0, 70, 0, 50);
 
                             LinearLayout.LayoutParams wrapContentParams = new LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    2
+                                    LinearLayout.LayoutParams.MATCH_PARENT,
+                                    1
                             );
+                            wrapContentParams.setMargins(0, 0, 10, 0);
 
                             LinearLayout.LayoutParams wrapContentTextParams = new LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    2
+                                    7
                             );
+                            wrapContentTextParams.setMargins(10, 0, 10, 0);
 
                             LinearLayout.LayoutParams wrapContentButtonParams = new LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    0
+                                    1
                             );
-                            wrapContentTextParams.setMargins(30, 0,20, 40);
+                            wrapContentButtonParams.setMargins(10, 20,10, 20);
 
                             LinearLayout llQueenEvents = findViewById(R.id.llQueenEvents);
                             LinearLayout eventParent = new LinearLayout(llQueenEvents.getContext());

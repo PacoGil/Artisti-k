@@ -1,5 +1,7 @@
 package com.example.artisti_k;
 
+import static android.view.View.TEXT_ALIGNMENT_GRAVITY;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,30 +50,32 @@ public class CarrascoActivity extends AppCompatActivity {
                             manuelEventos.setEvento(id, new Evento(artista, lugar, fecha, hora, id));
 
                             LinearLayout.LayoutParams parentContentParams = new LinearLayout.LayoutParams(
-                                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    2
+                                    LinearLayout.LayoutParams.MATCH_PARENT,
+                                    LinearLayout.LayoutParams.WRAP_CONTENT
+
                             );
-                            parentContentParams.setMargins(0, 40, 0, 0);
+                            parentContentParams.setMargins(0, 100, 0, 20);
 
                             LinearLayout.LayoutParams wrapContentParams = new LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    2
+                                    LinearLayout.LayoutParams.MATCH_PARENT,
+                                    1
                             );
+                            wrapContentParams.setMargins(0, 0,0, 20);
 
                             LinearLayout.LayoutParams wrapContentTextParams = new LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    2
+                                    10
                             );
+                            wrapContentTextParams.setMargins(25, 0,25, 0);
 
                             LinearLayout.LayoutParams wrapContentButtonParams = new LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    0
+                                    LinearLayout.LayoutParams.WRAP_CONTENT
+
                             );
-                            wrapContentTextParams.setMargins(30, 0,20, 40);
+                            wrapContentButtonParams.setMargins(0, 20,0, 20);
 
                             LinearLayout llCarrascoEvents = findViewById(R.id.llCarrascoEvents);
                             LinearLayout eventParent = new LinearLayout(llCarrascoEvents.getContext());
@@ -85,6 +89,7 @@ public class CarrascoActivity extends AppCompatActivity {
                             TextView fechaTextView = new TextView(eventParent.getContext());
                             fechaTextView.setTextColor(Color.WHITE);
                             fechaTextView.setText(fecha);
+                            fechaTextView.setTextAlignment(TEXT_ALIGNMENT_GRAVITY);
                             fechaTextView.setLayoutParams(wrapContentParams);
 
                             TextView horaTextView = new TextView(eventParent.getContext());

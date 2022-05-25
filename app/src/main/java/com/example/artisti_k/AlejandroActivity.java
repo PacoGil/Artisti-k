@@ -47,30 +47,61 @@ public class AlejandroActivity extends AppCompatActivity {
                             Eventos alejandroEventos = new Eventos();
                             alejandroEventos.setEvento(id, new Evento(artista, lugar, fecha, hora, id));
 
-                            LinearLayout.LayoutParams parentContentParams = new LinearLayout.LayoutParams(
+                            /*LinearLayout.LayoutParams parentContentParams = new LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.MATCH_PARENT,
                                     LinearLayout.LayoutParams.WRAP_CONTENT
                             );
-                            parentContentParams.setMargins(0, 40, 0, 0);
+                            parentContentParams.setMargins(0, 100, 0, 0);
 
                             LinearLayout.LayoutParams wrapContentParams = new LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    2
+                                    LinearLayout.LayoutParams.MATCH_PARENT,
+                                    1
+
                             );
+                            wrapContentParams.setMargins(0, 0, 0, 0);
 
                             LinearLayout.LayoutParams wrapContentTextParams = new LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    2
+                                    8
                             );
+                            wrapContentTextParams.setMargins(0, 0, 0, 0);
+
+                            LinearLayout.LayoutParams wrapContentButtonParams = new LinearLayout.LayoutParams(
+                                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                                    1
+
+                            );
+                            wrapContentButtonParams.setMargins(0, 0,0, 0);*/
+                            LinearLayout.LayoutParams parentContentParams = new LinearLayout.LayoutParams(
+                                    LinearLayout.LayoutParams.MATCH_PARENT,
+                                    LinearLayout.LayoutParams.WRAP_CONTENT
+                            );
+                            parentContentParams.setMargins(0, 80, 0, 0);
+
+                            LinearLayout.LayoutParams wrapContentParams = new LinearLayout.LayoutParams(
+                                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                                    LinearLayout.LayoutParams.MATCH_PARENT,
+                                    0
+                            );
+                            wrapContentParams.setMargins(0, 0,20, 0);
+
+                            LinearLayout.LayoutParams wrapContentTextParams = new LinearLayout.LayoutParams(
+                                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                                    8
+                            );
+                            wrapContentTextParams.setMargins(20, 0,0, 0);
 
                             LinearLayout.LayoutParams wrapContentButtonParams = new LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
                                     0
+
                             );
-                            wrapContentTextParams.setMargins(30, 0,20, 40);
+                            wrapContentButtonParams.setMargins(0, 20,0, 20);
 
                             LinearLayout llAlejandroEvents = findViewById(R.id.llAlejandroEvents);
                             LinearLayout eventParent = new LinearLayout(llAlejandroEvents.getContext());
