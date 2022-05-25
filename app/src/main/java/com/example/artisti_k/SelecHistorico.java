@@ -46,6 +46,7 @@ public class SelecHistorico extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         FirebaseUser user = fAuth.getCurrentUser();
         userId = user.getUid();
+
         listView = findViewById(R.id.llList_View);
         boton = findViewById(R.id.buttonVolver2);
 

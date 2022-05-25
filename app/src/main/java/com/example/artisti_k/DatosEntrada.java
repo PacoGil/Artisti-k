@@ -239,7 +239,6 @@ public class DatosEntrada extends AppCompatActivity {
                         compraEvento.getPrecioTotal(),
                         fechaReal,
                         userId
-
                 );
 
                 databaseReference.child("compra").push().setValue(compraConfirmada,
