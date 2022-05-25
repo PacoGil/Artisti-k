@@ -34,6 +34,7 @@ public class DatosEntrada extends AppCompatActivity {
     TextView emailEntradas, artista, lugarEvento, fechaEvento, numEntr, totalPrecio, idEvento;
     EditText numTarjeta, mesTarjeta, anioTarjeta, cvv;
     Button compraEntrada;
+    Long unixTime;
     String fechaReal, id2, userId;
     ConfirmacionCompra compraConfirmada;
 
@@ -68,7 +69,8 @@ public class DatosEntrada extends AppCompatActivity {
          de una instancia de firebase autentication.*/
         emailEntradas.setText(user.getEmail());
 
-        id2 = "OqdFAo";
+        unixTime = System.currentTimeMillis() / 1000L;
+        id2 = Long.toString(unixTime);
         idEvento.setText(compraEvento.getIdEvento());
         numEntr.setText(compraEvento.getEntradas());
         artista.setText(compraEvento.getArtista());

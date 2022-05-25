@@ -8,6 +8,19 @@
     android:textAlignment="center"
     tools:context=".FinalActivity">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="250sp"
+        android:layout_height="200sp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/infoFinal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logosolo" />
+
     <TextView
         android:id="@+id/infoFinal"
         android:layout_width="match_parent"
@@ -32,22 +45,22 @@
         android:text="Ajustes de usuario"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoFinal"
-        app:layout_constraintVertical_bias="0.345" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="250sp"
-        android:layout_height="200sp"
-        android:layout_marginTop="56dp"
-        app:layout_constraintBottom_toTopOf="@+id/infoFinal"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/logosolo" />
+        app:layout_constraintTop_toBottomOf="@+id/infoFinal"
+        app:layout_constraintVertical_bias="0.295" />
+
+    <Button
+        android:id="@+id/buttonMenuPrincipal"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00BCD4"
+        android:text=" menu principal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonVerCompra"
+        app:layout_constraintVertical_bias="0.276" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

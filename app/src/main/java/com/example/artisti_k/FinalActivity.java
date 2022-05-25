@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class FinalActivity extends AppCompatActivity {
 
-    Button ajustesUsuario;
+    Button ajustesUsuario, menuPrincipal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +17,7 @@ public class FinalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_final);
 
         ajustesUsuario = findViewById(R.id.botonVerCompra);
+        menuPrincipal = findViewById(R.id.buttonMenuPrincipal);
 
         ajustesUsuario.setOnClickListener(new View.OnClickListener() {
 
@@ -24,6 +25,16 @@ public class FinalActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(FinalActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        menuPrincipal.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(FinalActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

@@ -46,7 +46,6 @@ public class SelecHistorico extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         FirebaseUser user = fAuth.getCurrentUser();
         userId = user.getUid();
-
         listView = findViewById(R.id.llList_View);
         boton = findViewById(R.id.buttonVolver2);
 
@@ -61,6 +60,7 @@ public class SelecHistorico extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot datasnapshot) {
 
                         int i = 0;
+
                         for (DataSnapshot snapshot : datasnapshot.getChildren()){
                             String id = snapshot.child("id").getValue().toString();
                             String idEvento = snapshot.child("idEvento").getValue().toString();
@@ -77,7 +77,7 @@ public class SelecHistorico extends AppCompatActivity {
 
                             listaComprasMap.put(i, id);
 
-                            /* Texto que quieres que se muestre en la lista */
+                            // Texto que quieres que se muestre en la lista
                             listaCompras.add(artista + " | " + fechaReal);
 
                             arrayAdaptor = new ArrayAdapter<String>(
