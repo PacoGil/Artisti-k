@@ -25,8 +25,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -44,9 +43,6 @@ public class LoginActivity extends AppCompatActivity{
     Button logIn;
     GoogleSignInClient mGoogleSingInClient;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,31 +55,39 @@ public class LoginActivity extends AppCompatActivity{
         logIn = findViewById(R.id.logInButton);
         google = findViewById(R.id.google);
 
-
         //Funcionalidad del botón de registro
         signIn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
                 startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
             }
         });
 
         //Funcionalidad del botón de acceder
         logIn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
                 String email = emailLogin.getText().toString().trim();
                 String password = passwordLogin.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)){
+
                     emailLogin.setError("Introduce el email");
                     return;
                 }
+
                 if (TextUtils.isEmpty(password)){
+
                     passwordLogin.setError("Introduce la contraseña");
                     return;
                 }
+
                 if (password.length() < 6){
+
                     passwordLogin.setError("La contraseña debe tener al menos 6 caracteres");
                     return;
                 }
@@ -93,15 +97,18 @@ public class LoginActivity extends AppCompatActivity{
 
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if (task.isSuccessful()){
+
                             Toast.makeText(LoginActivity.this,"Sesíon iniciada correctamente", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
                         }else{
+
                             Toast.makeText(LoginActivity.this,"ERROR ! "+ Objects.requireNonNull(task.getException()).getMessage(),Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-
             }
         });
 
@@ -110,26 +117,30 @@ public class LoginActivity extends AppCompatActivity{
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
-
         mGoogleSingInClient = GoogleSignIn.getClient(this,gso);
 
         google.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
                 launcher.launch(new Intent(mGoogleSingInClient.getSignInIntent()));
             }
         });
-
     }
 
     ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+
         @Override
         public void onActivityResult(ActivityResult result) {
-            if (result.getResultCode() == Activity.RESULT_OK){
-                Intent intent = result.getData();
 
+            if (result.getResultCode() == Activity.RESULT_OK){
+
+                Intent intent = result.getData();
                 Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(intent);
+
                 try {
+
                     GoogleSignInAccount account = task.getResult(ApiException.class);
 
                     assert  account != null;
@@ -142,24 +153,27 @@ public class LoginActivity extends AppCompatActivity{
         }
     });
 
-    private void firebaseAuthWhithGoogle(String idToken) {
+    private void firebaseAuthWhithGoogle(String idToken){
+
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         fAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if (task.isSuccessful()){
+
                           startActivity(new Intent( LoginActivity.this, MainActivity.class));
                           finish();
                           Toast.makeText(LoginActivity.this, "Login correcto", Toast.LENGTH_SHORT).show();
 
                         }else {
+
                             Toast.makeText(LoginActivity.this, "Error",Toast.LENGTH_SHORT).show();
 
                         }
                     }
                 });
     }
-
-
 }

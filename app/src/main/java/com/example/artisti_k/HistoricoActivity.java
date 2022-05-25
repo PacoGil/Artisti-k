@@ -17,7 +17,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class HistoricoActivity extends AppCompatActivity {
 
-
     TextView fechaHistory, artistaHistory,lugarHistory, entradasHistory, totalHistory;
     String idID, fechaHis, artistaHis, lugarHis, entradasHis, totalHis;
     DatabaseReference databaseReference;
@@ -35,37 +34,37 @@ public class HistoricoActivity extends AppCompatActivity {
         entradasHistory = findViewById(R.id.entradasHistorico);
         totalHistory = findViewById(R.id.precioHistorico);
 
-
         Bundle extras = getIntent().getExtras();
-        //idID = extras.getString("idId");
-        idID = "OqdFEo";
+        idID = extras.getString("compraIdClick");
+
         databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference
                 .child("compra")
                 .orderByChild("id")
                 .equalTo(idID)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
+
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
                         ConfirmacionCompra compraNueva = snapshot.getValue(ConfirmacionCompra.class);
 
-                        System.out.println("What is-------" + compraNueva.getArtista());
-                        System.out.println("What is-------" + compraNueva.getId());
+                        fechaHis = snapshot.child("fecha").getValue().toString();
+                        artistaHis = snapshot.child("artista").getValue().toString();
+                        lugarHis = snapshot.child("lugar").getValue().toString();
+                        entradasHis = snapshot.child("entradas").getValue().toString();
+                        totalHis = snapshot.child("total").getValue().toString();
 
-                            fechaHis = snapshot.child("fecha").getValue().toString();
-                            artistaHis = snapshot.child("artista").getValue().toString();
-                            lugarHis = snapshot.child("lugar").getValue().toString();
-                            entradasHis = snapshot.child("entradas").getValue().toString();
-                            totalHis = snapshot.child("total").getValue().toString();
+                        System.out.println("¿Qué es compra nueva? " + compraNueva);
 
-                            fechaHistory.setText(fechaHis);
-                            artistaHistory.setText(artistaHis);
-                            lugarHistory.setText(lugarHis);
-                            entradasHistory.setText(entradasHis);
-                            totalHistory.setText(totalHis);
+                        fechaHistory.setText(fechaHis);
+                        artistaHistory.setText(artistaHis);
+                        lugarHistory.setText(lugarHis);
+                        entradasHistory.setText(entradasHis);
+                        totalHistory.setText(totalHis);
                         }
-
                     }
 
                     @Override
@@ -75,9 +74,11 @@ public class HistoricoActivity extends AppCompatActivity {
                 });
 
         volverUser.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HistoricoActivity.this, SettingsActivity.class);
+
+                Intent intent = new Intent(HistoricoActivity.this, SelecHistorico.class);
                 startActivity(intent);
             }
         });

@@ -16,6 +16,7 @@ public class ConfirmacionCompra {
     }
 
     public ConfirmacionCompra(String id, String idEvento, String artista, String lugar, String fecha, String entradas, String total, String fechaCompra, String usuario) {
+
         this.id = id;
         this.idEvento = idEvento;
         this.artista = artista;

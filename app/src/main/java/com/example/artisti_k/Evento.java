@@ -1,7 +1,5 @@
 package com.example.artisti_k;
 
-import java.util.HashMap;
-
 public class Evento {
     String artista;
     String lugar;
@@ -10,6 +8,7 @@ public class Evento {
     String id;
 
     public Evento(String artista, String lugar, String fecha, String hora, String id) {
+
         this.artista = artista;
         this.lugar = lugar;
         this.fecha = fecha;

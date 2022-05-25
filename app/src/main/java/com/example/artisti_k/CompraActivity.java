@@ -4,23 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.Serializable;
-
 public class CompraActivity extends AppCompatActivity {
+
     DatabaseReference databaseReference;
     Spinner spinner1;
     Button back, buy;
@@ -40,8 +37,6 @@ public class CompraActivity extends AppCompatActivity {
         buy = findViewById(R.id.compra);
         precioTextView = findViewById(R.id.price);
 
-
-        //TODO:: ANDRES Aqui recoges el put extra de los datos del artista de Eventos y haces la query
         Bundle extras = getIntent().getExtras();
         String eventoId = extras.getSerializable("eventoId").toString();
 
@@ -52,6 +47,7 @@ public class CompraActivity extends AppCompatActivity {
             .orderByChild("id")
             .equalTo(eventoId)
             .addListenerForSingleValueEvent(new ValueEventListener() {
+
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -62,13 +58,12 @@ public class CompraActivity extends AppCompatActivity {
                         lugar = snapshot.child("lugar").getValue().toString();
                         fecha = snapshot.child("fecha").getValue().toString();
                         precioTextView.setText(preciobd);
-
-
                     }
                 }
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
+
                 }
             });
 
@@ -79,13 +74,16 @@ public class CompraActivity extends AppCompatActivity {
 
         //Según las entradas elegidas, se obtendrá el precio multiplicándose el precio original por la cantidad elegida.
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
 
+            @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
                 selected = i + 1;
                 if (selected <= 1) {
+
                     precioTextView.setText(preciobd);
                 } else {
+
                 precioDigitos = Double.parseDouble(preciobd);
                 precioDigitos = precioDigitos * selected;
                 precioTextView.setText(Double.toString(precioDigitos));
@@ -94,21 +92,23 @@ public class CompraActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 
         //Botón para retroceder a la pantalla anterior
         back.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
                 onBackPressed();
             }
         });
 
-
-
         //Botón para ir a la siguiente pantalla y realizar el pago
         buy.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 compra = new CompraEntradas(idEv, artista, lugar, fecha, selected.toString(), precioTextView.getText().toString());

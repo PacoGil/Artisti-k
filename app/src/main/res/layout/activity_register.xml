@@ -62,5 +62,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#00BCD4"
             android:text="registrar" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

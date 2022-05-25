@@ -32,11 +32,12 @@ public class QueenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_queen);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
         databaseReference.child("evento").orderByChild("artista").equalTo("God Save the Queen")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+                .addListenerForSingleValueEvent(new ValueEventListener(){
+
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             String artista = snapshot.child("artista").getValue().toString();
                             String lugar = snapshot.child("lugar").getValue().toString();
@@ -118,8 +119,10 @@ public class QueenActivity extends AppCompatActivity {
                             llQueenEvents.addView(eventParent);
 
                             botonEntradas.setOnClickListener(new View.OnClickListener() {
+
                                 @Override
                                 public void onClick(View view) {
+
                                     System.out.println("what is view??? " + id);
                                     Intent intent = new Intent(QueenActivity.this, CompraActivity.class);
                                     intent.putExtra("eventoId", id);
@@ -132,8 +135,8 @@ public class QueenActivity extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                    }
-                });
+                }
+        });
 
     }
 }

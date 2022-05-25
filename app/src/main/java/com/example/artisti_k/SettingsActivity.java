@@ -58,8 +58,10 @@ public class SettingsActivity extends AppCompatActivity {
 
         //Con este lanzador de actividad, programamos la apertura de la galería de imagenes del teléfono
         launcherGalery = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+
             @Override
             public void onActivityResult(Uri result) {
+
                 imagen.setImageURI(result);
             }
         });
@@ -72,15 +74,19 @@ public class SettingsActivity extends AppCompatActivity {
 
         //guardar datos de usuario
         saveData.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
                 agregarUsuario();
             }
         });
 
         historicoCompra.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(SettingsActivity.this, SelecHistorico.class);
                 startActivity(intent);
             }
@@ -88,8 +94,10 @@ public class SettingsActivity extends AppCompatActivity {
 
         //Funcionalidad botón de cerrar sesión
         logOut.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
                 startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             }
         });
@@ -97,22 +105,29 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void agregarUsuario() {
+
         listaUsuario.clear();
         Usuario usuario = new Usuario(nombreEd.getText().toString(),
                 apellidosEd.getText().toString(),
                 phonEd.getText().toString(),
                 emailTv.getText().toString()
         );
+
         databaseReference.child("usario").push().setValue(usuario,
                 new DatabaseReference.CompletionListener() {
+
                     @Override
                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference databaseReference) {
+
                         Toast.makeText(SettingsActivity.this, "Usuario añadido",Toast.LENGTH_SHORT).show();
                     }
                 });
+
         limpiarCampos();
     }
+
     public void limpiarCampos(){
+
         nombreEd.setText("");
         apellidosEd.setText("");
         phonEd.setText("");

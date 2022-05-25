@@ -1,56 +1,66 @@
+
 package com.example.artisti_k;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.style.BackgroundColorSpan;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class SelecHistorico extends AppCompatActivity {
 
     ListView listView;
-
+    Button boton;
     DatabaseReference databaseReference;
+    FirebaseAuth fAuth;
+    String userId;
 
+    HashMap<Integer, String> listaComprasMap = new HashMap<Integer, String>();
+    ArrayList<String> listaCompras = new ArrayList<String>();
+    ArrayAdapter<String> arrayAdaptor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selec_historico);
 
+        fAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = fAuth.getCurrentUser();
+        userId = user.getUid();
+        listView = findViewById(R.id.llList_View);
+        boton = findViewById(R.id.buttonVolver2);
 
-        //listView = findViewById(R.id.list_View);
-
-        databaseReference= FirebaseDatabase.getInstance().getReference("compra");
+        databaseReference= FirebaseDatabase.getInstance().getReference();
         databaseReference
                 .child("compra")
-                .orderByChild("id")
-                .equalTo("usuario")
+                .orderByChild("usuario")
+                .equalTo(userId)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
+
                     @Override
                     public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                        for (DataSnapshot snapshot : datasnapshot.getChildren()){
 
+                        int i = 0;
+                        for (DataSnapshot snapshot : datasnapshot.getChildren()){
                             String id = snapshot.child("id").getValue().toString();
                             String idEvento = snapshot.child("idEvento").getValue().toString();
                             String artista = snapshot.child("artista").getValue().toString();
@@ -61,45 +71,59 @@ public class SelecHistorico extends AppCompatActivity {
                             String fechaReal = snapshot.child("fechaCompra").getValue().toString();
                             String email = snapshot.child("usuario").getValue().toString();
 
-
-
                             ConfirmacionCompras compraUsuario = new ConfirmacionCompras();
                             compraUsuario.setConfirmacionCompra(id, new ConfirmacionCompra(id, idEvento, artista, lugar, fecha, entradas, precioTotal, fechaReal, email));
 
-                            ListView.LayoutParams parentContentParams = new ListView.LayoutParams(
-                                    ListView.LayoutParams.MATCH_PARENT,
-                                    ListView.LayoutParams.WRAP_CONTENT
+                            listaComprasMap.put(i, id);
+
+                            /* Texto que quieres que se muestre en la lista */
+                            listaCompras.add(artista + " | " + fechaReal);
+
+                            arrayAdaptor = new ArrayAdapter<String>(
+                                    SelecHistorico.this,
+                                    R.layout.listacompra,
+                                    listaCompras
                             );
 
-                            ListView llList_View = findViewById(R.id.llList_View);
-                            ListView eventParent = new ListView(llList_View.getContext());
-                            eventParent.setLayoutParams(parentContentParams);
+                            listView.setAdapter(arrayAdaptor);
+                            listView.setClickable(true);
 
-                            ListView llTextContent = new ListView(llList_View.getContext());
-                            llTextContent.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+                            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-                            TextView fechaTextView = new TextView(eventParent.getContext());
-                            fechaTextView.setTextColor(Color.WHITE);
-                            fechaTextView.setText(fechaReal);
-                            fechaTextView.setLayoutParams(parentContentParams);
+                                @Override
+                                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                            eventParent.addView(fechaTextView);
-                            eventParent.addView(llTextContent);
-                            llTextContent.addView(fechaTextView);
+                                    System.out.println("adapterView::: " + adapterView);
 
-                            llList_View.addView(eventParent);
+                                    Intent intent = new Intent(SelecHistorico.this, HistoricoActivity.class);
 
+                                    //ID de la compra para llevarlo a la siguiente activity
+                                    intent.putExtra("compraIdClick", listaComprasMap.get(i));
+                                    startActivity(intent);
+
+                                    // listaComprasMap.get(i) === el ID de la compra para llevarlo a la siguiente activity
+                                    System.out.println("compra ID clickeado:: " + listaComprasMap.get(i));
+                                }
+                            });
+
+                            i++;
 
                         }
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
                     }
                 });
 
-    }
+                boton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(SelecHistorico.this, SettingsActivity.class);
+                        startActivity(intent);
+                    }
+                });
+        }
 }
 
 

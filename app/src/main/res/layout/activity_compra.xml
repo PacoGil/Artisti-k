@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#202732"
+    android:textAlignment="center"
     tools:context=".CompraActivity">
 
     <ImageView
@@ -64,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:backgroundTint="#00BCD4"
-        android:text="buy"
+        android:text="comprar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/volver"
         app:layout_constraintHorizontal_bias="0.006"
@@ -77,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#00BCD4"
-        android:text="back"
+        android:text="volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.888"

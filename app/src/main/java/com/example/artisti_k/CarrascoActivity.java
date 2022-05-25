@@ -1,11 +1,8 @@
 package com.example.artisti_k;
 
 import static android.view.View.TEXT_ALIGNMENT_GRAVITY;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,16 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class CarrascoActivity extends AppCompatActivity {
 
@@ -34,11 +27,12 @@ public class CarrascoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_carrasco);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
         databaseReference.child("evento").orderByChild("artista").equalTo("Manuel Carrasco")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
+
                     @Override
                     public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+
                         for (DataSnapshot snapshot : datasnapshot.getChildren()){
                             String artista = snapshot.child("artista").getValue().toString();
                             String lugar = snapshot.child("lugar").getValue().toString();
@@ -123,6 +117,7 @@ public class CarrascoActivity extends AppCompatActivity {
                             llCarrascoEvents.addView(eventParent);
 
                             botonEntradas.setOnClickListener(new View.OnClickListener() {
+
                                 @Override
                                 public void onClick(View view) {
                                     System.out.println("what is view??? " + id);
@@ -140,6 +135,5 @@ public class CarrascoActivity extends AppCompatActivity {
 
                     }
                 });
-
-    }
+        }
 }

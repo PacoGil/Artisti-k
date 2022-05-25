@@ -19,8 +19,10 @@ public class FinalActivity extends AppCompatActivity {
         ajustesUsuario = findViewById(R.id.botonVerCompra);
 
         ajustesUsuario.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(FinalActivity.this, SettingsActivity.class);
                 startActivity(intent);
             }

@@ -1,13 +1,10 @@
 package com.example.artisti_k;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,8 +31,10 @@ public class BunburyActivity extends AppCompatActivity {
                 .orderByChild("artista")
                 .equalTo("Bunbury")
             .addListenerForSingleValueEvent(new ValueEventListener() {
+
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         String artista = snapshot.child("artista").getValue().toString();
                         String lugar = snapshot.child("lugar").getValue().toString();
@@ -43,7 +42,6 @@ public class BunburyActivity extends AppCompatActivity {
                         String hora = snapshot.child("hora").getValue().toString();
                         String id = snapshot.child("id").getValue().toString();
 
-                        //TODO:: ANDRES aqui tu creas una instancia de la clase Eventos que es la que tienes el hashmap. sigue en la linea 169
                         Eventos bunburyEventos = new Eventos();
                         bunburyEventos.setEvento(id, new Evento(artista, lugar, fecha, hora, id));
 
@@ -73,7 +71,7 @@ public class BunburyActivity extends AppCompatActivity {
                                 1
 
                         );
-                       wrapContentButtonParams.setMargins(0, 20,0, 20);
+                        wrapContentButtonParams.setMargins(0, 20,0, 20);
 
                         LinearLayout llBunburyEvents = findViewById(R.id.llBunburyEvents);
                         LinearLayout eventParent = new LinearLayout(llBunburyEvents.getContext());
@@ -120,6 +118,7 @@ public class BunburyActivity extends AppCompatActivity {
                         llBunburyEvents.addView(eventParent);
 
                         botonEntradas.setOnClickListener(new View.OnClickListener() {
+
                             @Override
                             public void onClick(View view) {
                                 System.out.println("what is view??? " + id);
@@ -135,7 +134,8 @@ public class BunburyActivity extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
+
                 }
             });
-    }
+        }
 }

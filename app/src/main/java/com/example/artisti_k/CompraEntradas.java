@@ -5,14 +5,15 @@ import android.os.Parcelable;
 
 public class CompraEntradas implements Parcelable {
 
-    String idEvento;  // numero de entradas elegidas
-    String artista;    // evento elegido
-    String lugarEvento; // lugar del evento
-    String fechaLugarEvento; // fecha del evento
-    String entradas; // precio total de las entradas
+    String idEvento;
+    String artista;
+    String lugarEvento;
+    String fechaLugarEvento;
+    String entradas;
     String precioTotal;
 
     public CompraEntradas(String idEvento , String artista, String lugarEvento, String fechaLugarEvento, String entradas, String precioTotal) {
+
         this.idEvento = idEvento;
         this.artista = artista;
         this.lugarEvento = lugarEvento;
@@ -20,7 +21,6 @@ public class CompraEntradas implements Parcelable {
         this.entradas = entradas;
         this.precioTotal = precioTotal;
     }
-
 
     public String getIdEvento() {
         return idEvento;
@@ -106,13 +106,16 @@ public class CompraEntradas implements Parcelable {
     }
 
     public static final Parcelable.Creator<CompraEntradas> CREATOR = new Parcelable.Creator<CompraEntradas>() {
+
         @Override
         public CompraEntradas createFromParcel(Parcel source) {
+
             return new CompraEntradas(source);
         }
 
         @Override
         public CompraEntradas[] newArray(int size) {
+
             return new CompraEntradas[size];
         }
     };

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/damil/.gradle/caches/transforms-3/daec56630d897aa40e0fc6356687505b/transformed/appcompat-1.4.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/damil/Desktop/Artistik/app/src/main/res/drawable/person.xml" value="0.17857142857142858" />
         <entry key="..\:/Users/damil/Desktop/Artistik/app/src/main/res/layout/activity_alejandro.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/damil/Desktop/Artistik/app/src/main/res/layout/activity_bunbury.xml" value="0.264" />
@@ -25,11 +26,14 @@
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_final.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_guns.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_historico.xml" value="0.264" />
+        <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_main.xml" value="0.24094202898550723" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_queen.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_selec_historico.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/activity_settings.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/list_view_color.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/listacompra.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/layout/spinner_compra.xml" value="0.20652173913043478" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/damil/Documents/GitHub/Artisti-k/app/src/main/res/mipmap-anydpi-v26/ic_launcher_logo.xml" value="0.19814814814814816" />
